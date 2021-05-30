@@ -1,0 +1,48 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3 text-center">AI Classroom Teaching Simulator</h1>
+            </div>
+        </div>
+    </main>
+    {% if user.is_authenticated %}
+
+        {% if "participant" in groups %}
+        <div class="d-flex justify-content-center">
+            <div class="col-md-4 text-center">
+                <h2>Development and Refinement of the AI Classroom Talk Simulator (ACTS)</h2>
+                <p>
+                    <a class="btn btn-secondary" href="/chat/start" role="button">Get started &raquo;</a>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if "oz" in groups %}
+        <div class="d-flex justify-content-center">
+            <div class="col-md-4  text-center">
+                <h2>OzChat testing</h2>
+                <p>
+                    <a class="btn btn-secondary" href="/chat/ozstart" role="button">Get started &raquo;</a>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if groups|length == 0 %}
+        <div class="d-flex justify-content-center">
+            <div class="col-md-4  text-center">
+                <h2>No research projects listed</h2>
+                <p>You have not yet been added to any research projects. Please contact the project PI.</p>
+            </div>
+        </div>
+        {% endif %}
+
+    {% else %}
+        {% block extracontent %}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

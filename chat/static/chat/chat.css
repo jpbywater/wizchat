@@ -1,0 +1,55 @@
+
+.card::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background: #d1d1d1;
+}
+
+
+.bubble1, .bubble2 {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+	}
+
+
+.bubble1 a {
+	background: #42a5f5;
+	color: #fff !important;
+	border-radius: 20px 20px 3px 20px;
+	display: block;
+	max-width: 75%;
+	padding: 7px 13px 7px 13px;
+	}
+
+.bubble1:before {
+	content: attr(data-author);
+	position: absolute;
+	right: 15px;
+	bottom: -0.8em;
+	display: block;
+	font-size: .750rem;
+	color: rgba(84, 110, 122,1.0);
+	}
+
+.bubble2 a {
+	background: #f1f1f1;
+	color: #000 !important;
+	border-radius: 20px 20px 20px 3px;
+	display: block;
+	max-width: 75%;
+	padding: 7px 13px 7px 13px;
+	}
+
+.bubble2:before {
+	content: attr(data-author);
+	position: absolute;
+	left: 13px;
+	bottom: -0.8em;
+	display: block;
+	font-size: .750rem;
+	color: rgba(84, 110, 122,1.0);
+
+	}

@@ -1,0 +1,167 @@
+
+:root{
+--olength:5cm;
+--owidth:4cm;
+--oheight:3cm;
+--length:5cm;
+--width:4cm;
+--height:3cm;
+--scalefactor:1;
+--labelshift:0.5cm;
+}
+
+div {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.boxWrapper {
+	padding: 3cm 0cm;
+	width: 400px;
+	perspective: 1000px;
+	perspective-origin: 20% -10%;
+}
+.obox {
+	width: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+	transform:rotateY(-75deg) ;
+}
+.olable {
+	width: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+	transform:rotateY(-75deg) ;
+}
+.obox div {
+	position: absolute;
+	background: hsla(  210, 70%, 70%, 0.5);
+	border: 1px solid black;
+}
+.olable div {
+	position: absolute;
+	background: none;
+	border: 0;
+}
+.ofront {
+	width: var(--owidth);
+	height: var(--oheight);
+}
+.oback {
+	transform: translateZ(calc(0cm - var(--olength))) rotateY(180deg);
+	width: var(--owidth);
+	height: var(--oheight);
+}
+.oright {
+	transform: rotateY(90deg) translateZ(var(--owidth));
+	transform-origin: left;
+	width: var(--olength);
+	height: var(--oheight);
+}
+.oleft {
+	transform: rotateY(270deg) translateX(calc(0cm - var(--olength)));
+	transform-origin: left;
+	width: var(--olength);
+	height: var(--oheight);
+}
+.otop {
+	transform: rotateX(90deg) translateY(calc(0cm - var(--olength)));
+	transform-origin: top;
+	width: var(--owidth);
+	height: var(--olength);
+}
+.obottom {
+	transform: rotateX(-90deg) translateZ(calc(var(--oheight)));
+	transform-origin: top;
+	width: var(--owidth);
+	height: var(--olength);
+}
+.ollable {
+	transform: rotateY(90deg) translateX(calc(var(--olength)/2 - var(--labelshift)/2)) translateY(calc(0cm - var(--labelshift)));
+	transform-origin: left;
+}
+
+.owlable {
+	transform: rotateY(90deg) translateZ(calc(var(--owidth)/2)) translateX(calc(var(--olength))) translateY(calc(0cm - var(--labelshift)));
+	transform-origin: left;
+}
+.ohlable {
+	transform: rotateY(90deg)  translateY(calc(var(--oheight)/2 - var(--labelshift)/2)) translateX(calc(0cm - 1.3cm - var(--labelshift)));
+	transform-origin: left;
+}
+
+
+
+.box {
+	width: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+	transform:rotateY(-75deg) ;
+}
+.lable {
+	width: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+	transform:rotateY(-75deg) ;
+}
+.box div {
+	position: absolute;
+	background: hsla(  210, 70%, 70%, 0.5);
+	border: 1px solid black;
+}
+.lable div {
+	position: absolute;
+	background: none;
+	border: 0;
+}
+.front {
+	width: var(--width);
+	height: var(--height);
+}
+.back {
+	transform: translateZ(calc(0cm - var(--length))) rotateY(180deg);
+	width: var(--width);
+	height: var(--height);
+}
+.right {
+	transform: rotateY(90deg) translateZ(var(--width));
+	transform-origin: left;
+	width: var(--length);
+	height: var(--height);
+}
+.left {
+	transform: rotateY(270deg) translateX(calc(0cm - var(--length)));
+	transform-origin: left;
+	width: var(--length);
+	height: var(--height);
+}
+.top {
+	transform: rotateX(90deg) translateY(calc(0cm - var(--length)));
+	transform-origin: top;
+	width: var(--width);
+	height: var(--length);
+}
+.bottom {
+	transform: rotateX(-90deg) translateZ(calc(var(--height)));
+	transform-origin: top;
+	width: var(--width);
+	height: var(--length);
+}
+.llable {
+	transform: rotateY(90deg) translateX(calc(var(--length)/2 - var(--labelshift)/2)) translateY(calc(0cm - var(--labelshift)));
+	transform-origin: left;
+	background: white;
+	border: 0px;
+}
+.wlable {
+	transform: rotateY(90deg) translateZ(calc(var(--width)/2)) translateX(calc(var(--length))) translateY(calc(0cm - var(--labelshift)));
+	transform-origin: left;
+	background: hsla(0, 0, 0, 0);
+	border: 0px;
+}
+.hlable {
+	transform: rotateY(90deg)  translateY(calc(var(--height)/2 - var(--labelshift)/2)) translateX(calc(0cm - 1.3cm - var(--labelshift)));
+	transform-origin: left;
+	background: hsla(  0, 50%, 50%, 0.5);
+	border: 0;
+}
+

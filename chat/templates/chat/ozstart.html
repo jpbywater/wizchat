@@ -1,0 +1,45 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-start">
+    <div class="col-md-12">
+        <h2>You are the chat supervisor</h2>
+        {% if users %}
+            <form action="ozinterface" method="post">
+                {% csrf_token %}
+                <h5>Select a (currently logged in) participant:</h5>
+                <p>
+                    {% for user in users %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ws_group_name" value="{{ user }}" checked="checked"/>{{ user }}
+                        </div>
+                    {% endfor %}
+                </p>
+                <h5>Select your supervisor role:</h5>
+                <p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="supervisor_role" value="observer"/><b>Observer.</b> You view the participant-chatbot conversation. Your participation is disabled.
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="supervisor_role" value="backup" checked="checked"/><b>Backup.</b> You respond for the chatbot when the chatbot asks for your help. Otherwise chatbot messages are sent directly to the participant.
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="supervisor_role" value="verify"/><b>Verify.</b> You verify/edit all chatbot messages before they are sent to the participant. No chatbot messages are sent directly to the participant.
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="supervisor_role" value="solo"/><b>Solo.</b> You chat directly with the participant. The chatbot is disabled.
+                    </div>
+                </p>
+                <p>
+                    <input class="btn btn-primary" type="submit" value="Begin as supervisor">
+                </p>
+            </form>
+        {% else %}
+            <p>You are the only user logged in right now. Refresh to check for new logins.</p>
+        {% endif %}
+
+{#        TODO: make a list of currently logged in users with group = participant and remove this user#}
+{#        TODO: pick one from the list and join that user websockets group and submit... then go to interface#}
+    </div>
+</div>
+{% endblock %}

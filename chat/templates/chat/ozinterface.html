@@ -1,0 +1,59 @@
+{% extends 'chat/base.html' %}
+
+{% block extracss %}
+{% load static %}
+<link href="{% static 'chat/rec_prism_scalefactor2/rec_prism_scalefactor2.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+{% load static %}
+<script src="{% static 'chat/ozchat.js' %}"></script>
+<script src="{% static 'chat/rec_prism_scalefactor2/rec_prism_scalefactor2.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="d-flex justify-content-center">
+    <div class="col-md-12">
+        <h2 class="text-center">Supervisor View</h2>
+        <h5 class="text-center">You are supervising <i>{{ participant_name }}</i> in the <i>{{ supervisor_role }}</i> role. <small>[<a href="/chat/ozstart">change</a>]</small></h5>
+        <div class="row">
+            <div class = "col">
+                <!-- IMAGES GO HERE -->
+                <h4>How does the scale factor change the length, width and height of the object?</h4>
+                {% include 'chat/rec_prism_scalefactor2.html' %}
+                <!-- END IMAGES -->
+            </div>
+            <div class = "col">
+                <!-- CHAT GOES HERE-->
+                <div id="bubbles_container" class="card" style="overflow-y: scroll; height: 400; position-relative">
+
+    			    <div id="bubbles" class="card border-0 m-0 p-0 position-relative">
+
+                        {% for message in messages %}
+                            {% if message.from == 'You' %}
+                                <div class="bubble1 p-2 m-0 position-relative" data-author= "You" >
+            					    <a class="float-right"> {{message.text}} </a>
+            				    </div>
+        				    {% else %}
+            				    <div class="bubble2 p-2 m-0 position-relative" data-author= {{message.from}} >
+            					    <a class="float-left"> {{message.text}} </a>
+            				    </div>
+        				    {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+			    </div>
+
+    			<div class="w-100 card-footer p-0 bg-light border border-bottom-0 border-left-0 border-right-0 text-left">
+        			<textarea class="form-control" rows="3" id="oz-response" placeholder="Type your response here"></textarea>
+                    <button id="send-oz-response" type="button" class="btn btn-secondary disabled">Send as Student</button>
+    			</div>
+
+                <!-- END CHAT -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
