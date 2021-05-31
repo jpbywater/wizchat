@@ -38,6 +38,7 @@ $ python manage.py runserver
 Use the following login credentials (Change these if publically deploying):
 - Admin. can access as user and supervisor (Username: admin_user Password: admin_pass)
 - Test. can access as user only (Username: test_user Password: test_pass)
+
 To add additional users, use the Django https://127.0.0.1:8000/admin interface. 
 New users can be given: 
 - user interface access by adding a user to the 'participant' group
