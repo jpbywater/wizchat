@@ -43,3 +43,9 @@ To add additional users, use the Django https://127.0.0.1:8000/admin interface.
 New users can be given: 
 - user interface access by adding a user to the 'participant' group
 - supervisor interface access by adding a user to the 'oz' group
+
+# Supervisor functions
+After logging in, supervisors can pick from a list of logged in users and can pick their supervisor role. 
+
+# Saved chat data
+The chat data for each conversation is saved in JSON format in the chat_data field of the 'Saved Chat' database table.
