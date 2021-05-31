@@ -11,7 +11,7 @@ Conversations can involve exchanging text and images, and all chat data are save
 ## Chatbot/NLP Models
 This repo comes without an nlp model to drive the chatbot. This should be included in the file nlp.py. 
 ## Image
-To demonstrate the multimodal functionality of wizchat, this repo also comes with an interactive image from an 8th grade mathematics classroom task. This can also be edited and replaced.
+To demonstrate the multimodal functionality of wizchat, this repo comes with an example interactive image. This can also be edited and replaced.
 ## Django
 Wizchat is a Django web project: https://www.djangoproject.com/
 Inspiration for the text chat interface came from here: https://onaircode.com/javascript-js-chat-box-examples
