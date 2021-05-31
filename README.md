@@ -46,6 +46,7 @@ New users can be given:
 
 # Supervisor functions
 After logging in, supervisors can pick from a list of logged in users and can pick their supervisor role. 
+![saved_chat](https://user-images.githubusercontent.com/14824994/120213852-b60d1a80-c201-11eb-8c08-3634eed666a0.png)
 
 # Saved chat data
 The chat data for each conversation is saved in JSON format in the chat_data field of the 'Saved Chat' database table.
