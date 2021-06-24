@@ -1,12 +1,12 @@
 
 :root{
---olength:5cm;
---owidth:4cm;
---oheight:3cm;
---length:5cm;
---width:4cm;
---height:3cm;
---scalefactor:1;
+--olength:0cm;
+--owidth:0cm;
+--oheight:0cm;
+--length:0cm;
+--width:0cm;
+--height:0cm;
+--scalefactor:0;
 --labelshift:0.5cm;
 }
 

@@ -2,13 +2,24 @@
 
 {% block extracss %}
 {% load static %}
-<link href="{% static 'chat/rec_prism_scalefactor2/rec_prism_scalefactor2.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'chat/img/rec_prism_scalefactor.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block extrajs %}
 {% load static %}
 <script src="{% static 'chat/ozchat.js' %}"></script>
-<script src="{% static 'chat/rec_prism_scalefactor2/rec_prism_scalefactor2.js' %}"></script>
+<script src="{% static 'chat/img/rec_prism_scalefactor.js' %}"></script>
+<script>
+    $("document").ready(function() {
+        var start_chat_image_json = {
+            'ol':'{{start_chat_msg.image.ol}}',
+            'ow':'{{start_chat_msg.image.ow}}',
+            'oh':'{{start_chat_msg.image.oh}}',
+            'sf':'{{start_chat_msg.image.sf}}'
+        };
+        do_when_new_img_data_recieved(start_chat_image_json)
+    });
+</script>
 {% endblock %}
 
 {% block content %}
@@ -30,18 +41,9 @@
 
     			    <div id="bubbles" class="card border-0 m-0 p-0 position-relative">
 
-                        {% for message in messages %}
-                            {% if message.from == 'You' %}
-                                <div class="bubble1 p-2 m-0 position-relative" data-author= "You" >
-            					    <a class="float-right"> {{message.text}} </a>
-            				    </div>
-        				    {% else %}
-            				    <div class="bubble2 p-2 m-0 position-relative" data-author= {{message.from}} >
-            					    <a class="float-left"> {{message.text}} </a>
-            				    </div>
-        				    {% endif %}
-                        {% endfor %}
-
+                        <div class="bubble2 p-2 m-0 position-relative" data-author= {{start_chat_msg.from}} >
+                            <a class="float-left"> {{start_chat_msg.text}} </a>
+                        </div>
 
                     </div>
 			    </div>
