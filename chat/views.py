@@ -32,12 +32,16 @@ def start(request):
         chat_data=str([start_chat_msg()])
         )
     t.save()
-    request.session['chat_pk']=t.pk
+    request.session['chat_pk'] = t.pk
     return render(request, 'chat/start.html')
 
 
 @user_passes_test(is_participant)
 def interface(request):
+    trial_id = request.POST['trial_id']
+    if trial_id == "":
+        trial_id = "unspecified"
+    SavedChat.objects.filter(pk=request.session['chat_pk']).update(trial_id=trial_id)
     return render(request, 'chat/interface.html', {'start_chat_msg': start_chat_msg()})
 
 
@@ -64,13 +68,15 @@ def ozinterface(request):
         request.session['ws_group_name'] = request.POST['ws_group_name']
         request.session['supervisor_role'] = request.POST['supervisor_role']
         request.session['chat_pk'] = SavedChat.objects.filter(ws_group_name=request.session['ws_group_name']).latest('timestamp_start').pk
+        request.session['trial_id'] = SavedChat.objects.get(pk=request.session['chat_pk']).trial_id
         SavedChat.objects.filter(pk=request.session['chat_pk']).update(supervisor_role=request.session['supervisor_role'])
     except:
-        return redirect('chat/ozstart.html')
+        return redirect('/chat/ozstart')
     else:
         return render(request, 'chat/ozinterface.html',
                       {'start_chat_msg': start_chat_msg(),
                        'participant_name': request.session['ws_group_name'],
-                       'supervisor_role': request.session['supervisor_role']
+                       'supervisor_role': request.session['supervisor_role'],
+                       'trial_id': request.session['trial_id']
                        }
                       )

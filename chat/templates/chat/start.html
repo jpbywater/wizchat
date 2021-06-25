@@ -5,8 +5,15 @@
     <div class="col-md-12">
         <h2>Introduction</h2>
         <p>You will be talking with a virtual student about ... [add context and background].</p>
-        <p><a class="btn btn-primary" href="/chat/interface">I'm ready! let's get started</a></p>
-        <p>If you wish to end your participation at any point, click on the 'End Participation' link on the top right.</p>
+        <form action="interface" method="post">
+            {% csrf_token %}
+            <p>
+            <input type="text" class="form-control col-md-4" name="trial_id" placeholder="Enter Trial ID here (optional)">
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" value="I'm ready! let's get started">
+            </p>
+        </form>
     </div>
 </div>
 {% endblock %}

@@ -7,3 +7,4 @@ class SavedChat(models.Model):
     timestamp_end = models.DateTimeField(auto_now=True)
     chat_data = models.TextField(blank=True)
     supervisor_role = models.CharField(max_length=50, default="nosupervisor")
+    trial_id = models.CharField(max_length=50, blank=True)

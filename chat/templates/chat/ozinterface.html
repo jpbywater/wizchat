@@ -27,12 +27,15 @@
 <div class="d-flex justify-content-center">
     <div class="col-md-12">
         <h2 class="text-center">Supervisor View</h2>
-        <h5 class="text-center">You are supervising <i>{{ participant_name }}</i> in the <i>{{ supervisor_role }}</i> role. <small>[<a href="/chat/ozstart">change</a>]</small></h5>
+        <h5 class="text-center">
+            You are supervising <i>{{ participant_name }}</i> in the <i>{{ supervisor_role }}</i> role and the Trial ID is <i>{{ trial_id }}</i>.
+            <small>[<a href="/chat/ozstart">change</a>]</small>
+        </h5>
         <div class="row">
             <div class = "col">
                 <!-- IMAGES GO HERE -->
                 <h4>How does the scale factor change the length, width and height of the object?</h4>
-                {% include 'chat/rec_prism_scalefactor2.html' %}
+                {% include 'chat/rec_prism_scalefactor.html' %}
                 <!-- END IMAGES -->
             </div>
             <div class = "col">
