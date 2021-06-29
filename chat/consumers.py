@@ -57,6 +57,7 @@ class ChatConsumer(WebsocketConsumer):
         # Get chat_pk and supervisor_role
         chat_pk = self.scope["session"]["chat_pk"]
         supervisor_role = SavedChat.objects.get(pk=chat_pk).supervisor_role
+        trial_id = SavedChat.objects.get(pk=chat_pk).trial_id
 
         # Append new msg to DB record
         chat_data = ast.literal_eval(SavedChat.objects.get(pk=chat_pk).chat_data)
@@ -79,7 +80,7 @@ class ChatConsumer(WebsocketConsumer):
         if msg_from == "Teacher":
             if supervisor_role in ["nosupervisor", "observer", "verify", "backup"]:
                 # Send new msg and prior_chat_data to NLP
-                nlp_from, nlp_text, nlp_image = to_user(msg_text, msg_image, chat_data)
+                nlp_from, nlp_text, nlp_image = to_user(msg_text, msg_image, chat_data, trial_id)
                 # Append nlp msg to DB record
                 chat_data.append({'from': nlp_from, 'text': nlp_text, 'image': nlp_image})
                 SavedChat.objects.filter(pk=chat_pk).update(chat_data=str(chat_data))

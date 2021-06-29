@@ -8,7 +8,7 @@ def start_chat_msg():
     return {'from': 'Student', 'text': first_text, 'image': first_img}
 
 
-def to_user(new_text, new_image, all_chat_data):
+def to_user(new_text, new_image, all_chat_data, trial_id):
     # for testing....
 
     if new_text == "q":
