@@ -15,7 +15,7 @@ def to_user(new_text, new_image, all_chat_data, trial_id):
         output_from = "Helpee"
     else:
         output_from = "Student"
-    output_text = 'I heard you say: "' + new_text + '" and the TrialID is' + trial_id
+    output_text = 'I heard you say: "' + new_text + '" and the TrialID is ' + trial_id
     output_image = new_image  # placeholder
     return output_from, output_text, output_image
 
